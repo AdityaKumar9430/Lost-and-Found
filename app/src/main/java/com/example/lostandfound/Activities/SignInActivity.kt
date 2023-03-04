@@ -118,7 +118,14 @@ class SignInActivity :baseactivity() {
     }
 
 
+    override fun onStart() {
+        super.onStart()
+        if(auth.currentUser!=null)
+        {
+            startActivity(/* intent = */ Intent(this,MainActivity::class.java))
 
+        }
+    }
 
 
 
