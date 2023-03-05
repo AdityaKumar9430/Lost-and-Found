@@ -14,6 +14,7 @@ import com.example.lostandfound.R
 
 class IntroActivity12 : AppCompatActivity() {
     var videoView: VideoView? = null
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +46,8 @@ class IntroActivity12 : AppCompatActivity() {
 
 
     }
+
+
 
     override fun onPostResume() {
         videoView!!.resume()

@@ -8,6 +8,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.Toolbar
 import com.example.lostandfound.R
 import com.google.firebase.auth.FirebaseAuth
@@ -117,7 +118,7 @@ class SignInActivity :baseactivity() {
         }
     }
 
-
+// functiom for autologin user need not tobe login again and again
     override fun onStart() {
         super.onStart()
         if(auth.currentUser!=null)

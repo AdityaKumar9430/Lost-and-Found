@@ -51,17 +51,22 @@ open class baseactivity : AppCompatActivity() {
         return FirebaseAuth.getInstance().currentUser!!.uid
 
     }
-fun doublebacktoexit()
-{
+fun doublebacktoexit() {
+
+
     if(doublebacktoexitpressedonce)
     {
         super.onBackPressed()
         return
-    }
-    this.doublebacktoexitpressedonce=true
 
+
+    }
+
+
+    this.doublebacktoexitpressedonce=true
     Toast.makeText(this, "Click back once again to Exit", Toast.LENGTH_SHORT).show()
     Handler().postDelayed({doublebacktoexitpressedonce=false},1500)
+
 
 
 
