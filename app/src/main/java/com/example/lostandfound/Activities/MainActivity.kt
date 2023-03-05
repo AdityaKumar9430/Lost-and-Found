@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
 
       // another code for function of double back pressed
-        // doubleheader()
+//         doubleheader()
 
         // code for doublebackpressed
 //      val onbackpressedback=object: OnBackPressedCallback(true)

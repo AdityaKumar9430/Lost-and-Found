@@ -10,7 +10,9 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.lostandfound.Firebase.firestore
 import com.example.lostandfound.R
+import com.google.firebase.firestore.ktx.firestore
 
 class IntroActivity12 : AppCompatActivity() {
     var videoView: VideoView? = null
@@ -36,8 +38,14 @@ class IntroActivity12 : AppCompatActivity() {
         }
         val btnsignin=findViewById<Button>(R.id.button1)
         btnsignin.setOnClickListener {
-            startActivity(Intent(this, SignInActivity::class.java))
-
+            var currentuserid=firestore().getcurrentuserid()
+            if(currentuserid.isNotEmpty() )
+            {
+                startActivity(Intent(this,MainActivity::class.java))
+            }
+            else {
+                startActivity(Intent(this, SignInActivity::class.java))
+            }
         }
 
 
@@ -68,4 +76,5 @@ class IntroActivity12 : AppCompatActivity() {
         videoView!!.stopPlayback()
         super.onDestroy()
     }
+
 }
