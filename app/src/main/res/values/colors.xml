@@ -12,4 +12,5 @@
     <color name="secondarytextcolor">#7A8089</color>
     <color name="snackbar_error_color">#F72400</color>
     <color name="snackbar_succesful_color">#018FFF</color>
+    <color name="grey_darker">#e0e0e0</color>
 </resources>

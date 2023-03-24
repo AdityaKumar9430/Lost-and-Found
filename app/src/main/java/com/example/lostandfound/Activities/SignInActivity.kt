@@ -10,13 +10,19 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.Toolbar
-import com.example.lostandfound.Firebase.firestore
+
 import com.example.lostandfound.R
 import com.example.lostandfound.models.User
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.snapshots
 
 open class SignInActivity :baseactivity() {
    private lateinit var auth:FirebaseAuth
+   private lateinit var mdatabaseref:DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
@@ -36,7 +42,7 @@ open class SignInActivity :baseactivity() {
 
         }
 
-
+     mdatabaseref=FirebaseDatabase.getInstance().getReference("Users")
     }
     fun setupactionbar1()
     {
@@ -57,23 +63,7 @@ open class SignInActivity :baseactivity() {
          }
     }
 
-    fun Signinsuccess(user:User)
-    {
-hideprogressdialog()
-        val layout123=layoutInflater.inflate(R.layout.custom_toast_layout,findViewById(R.id.view_layout_of_toast))
-        val   toast4:Toast=Toast(applicationContext)
-        toast4.view=layout123
-        val txtmsg12:TextView=layout123.findViewById(R.id.textview_toast)
-        txtmsg12.setText( "You have Signed In successfully")
-        toast4.duration.toLong()
-        toast4.show()
-        val user=auth.currentUser
-        startActivity(Intent(this,MainActivity::class.java))
-        finish()
-        Log.d("Sign IN","Sign with Email successfully")
 
-
-    }
     private fun signinregistereduser() {
         val email1:String = findViewById<TextView>(R.id.et_email1).text.toString().trim{it<= ' ' }
         val password1:String =findViewById<TextView>(R.id.et_password1).text.toString().trim{it<=' '}
@@ -81,9 +71,25 @@ hideprogressdialog()
         if (revalidate1(email1,password1)) {
             showprogressdialog("Signing In...")
             auth.signInWithEmailAndPassword(email1,password1).addOnCompleteListener(this) { task->
+                hideprogressdialog()
                 if(task.isSuccessful){
-               //sign in success
-                 firestore().signinuser(this)
+
+                    val layout123=layoutInflater.inflate(R.layout.custom_toast_layout,findViewById(R.id.view_layout_of_toast))
+                    val   toast4:Toast=Toast(applicationContext)
+                    toast4.view=layout123
+                    val txtmsg12:TextView=layout123.findViewById(R.id.textview_toast)
+                    txtmsg12.setText( "You have Signed In successfully")
+                    toast4.duration.toLong()
+                    toast4.show()
+                    val user=auth.currentUser
+                    finish()
+                    startActivity(Intent(this,MainActivity::class.java))
+
+                    Log.d("Sign IN","Sign with Email successfully")
+
+
+
+
 
                 }
                 else{
@@ -128,15 +134,7 @@ hideprogressdialog()
     }
 
 
-// functiom for autologin user need not tobe login again and again
-//override fun onStart() {
-//    super.onStart()
-//    if(auth.currentUser!=null)
-//    {
-//        startActivity(/* intent = */ Intent(this,MainActivity::class.java))
-//
-//    }
-//}
+
 
 
 

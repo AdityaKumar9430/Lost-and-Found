@@ -10,15 +10,26 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.lostandfound.Firebase.firestore
+import androidx.core.util.toAndroidPair
+
 import com.example.lostandfound.R
+import com.example.lostandfound.models.User
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 
 class IntroActivity12 : AppCompatActivity() {
     var videoView: VideoView? = null
+    private lateinit var mauth:FirebaseAuth
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro12)
         videoView = findViewById(R.id.videoview)
@@ -29,6 +40,7 @@ class IntroActivity12 : AppCompatActivity() {
         val typeFace: Typeface = Typeface.createFromAsset(assets,"carbon bl.otf")
         val textview123: TextView =findViewById(R.id.textView)
         textview123.typeface=typeFace
+        mauth=FirebaseAuth.getInstance()
 
         val btnsignup=findViewById<Button>(R.id.button2)
 
@@ -37,16 +49,21 @@ class IntroActivity12 : AppCompatActivity() {
 
         }
         val btnsignin=findViewById<Button>(R.id.button1)
+
         btnsignin.setOnClickListener {
-            var currentuserid=firestore().getcurrentuserid()
-            if(currentuserid.isNotEmpty() )
-            {
-                startActivity(Intent(this,MainActivity::class.java))
-            }
-            else {
-                startActivity(Intent(this, SignInActivity::class.java))
-            }
-        }
+             val currentuserid=mauth.uid
+
+if (currentuserid!=null)
+{  startActivity(Intent(this,MainActivity::class.java))}
+
+else {
+    startActivity(Intent(this,SignInActivity::class.java))
+}
+
+         }
+
+
+
 
 
 
@@ -78,3 +95,8 @@ class IntroActivity12 : AppCompatActivity() {
     }
 
 }
+
+
+
+
+

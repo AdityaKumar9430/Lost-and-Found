@@ -10,6 +10,7 @@ import com.example.lostandfound.R
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.*
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 
@@ -38,7 +39,7 @@ open class baseactivity : AppCompatActivity() {
         mprogressdialog.findViewById<TextView>(R.id.tv_progress_text).text=Text
 
         mprogressdialog.show()
-        Handler().postDelayed({},2500)
+        Handler().postDelayed({},2000)
 
 
     }
@@ -74,14 +75,14 @@ fun doublebacktoexit() {
     fun showerrorsnackbar(message:String){
     val snackbar =Snackbar.make(findViewById(android.R.id.content),message,Snackbar.LENGTH_LONG)
         val snackbarview=snackbar.view
-    snackbarview.setBackgroundColor(ContextCompat.getColor(this,R.color.snackbar_error_color))
+    snackbarview.setBackgroundColor(getColor(this,R.color.snackbar_error_color))
     snackbar.show()
 
     }
     fun showsuccesfullnackbar(message:String){
         val snackbar1 =Snackbar.make(findViewById(android.R.id.content),message,Snackbar.LENGTH_LONG)
         val snackbarview1=snackbar1.view
-        snackbarview1.setBackgroundColor(ContextCompat.getColor(this,R.color.snackbar_succesful_color))
+        snackbarview1.setBackgroundColor(getColor(this,R.color.snackbar_succesful_color))
         snackbar1.show()
 
     }

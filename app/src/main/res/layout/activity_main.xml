@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -25,9 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:elevation="8dp"
+        app:menu="@menu/bottom_navbar"
 
-
-
-        app:menu="@menu/bottom_navbar" />
+        android:background="#B5B5B5"/>
 
 </RelativeLayout>

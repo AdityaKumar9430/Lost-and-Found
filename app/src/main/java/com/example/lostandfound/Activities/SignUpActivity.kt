@@ -10,13 +10,16 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.example.lostandfound.Firebase.firestore
+
 import com.example.lostandfound.R
 import com.example.lostandfound.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class SignUpActivity : baseactivity() {
+    private lateinit var mdatabaseref:DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
@@ -28,7 +31,7 @@ class SignUpActivity : baseactivity() {
         btnsignup.setOnClickListener {
             startActivity(Intent(this,SignInActivity::class.java))
         }
-
+      mdatabaseref=FirebaseDatabase.getInstance().getReference("Users")
     }
     fun setupActionBar(){
         val toolbar123=findViewById<androidx.appcompat.widget.Toolbar>(R.id.search_bar)
@@ -69,25 +72,6 @@ class SignUpActivity : baseactivity() {
 
 
     }
-    fun userregisteredsuccess()
-    {
-
-        val layout  = layoutInflater.inflate(R.layout.custom_toast_layout,findViewById(R.id.view_layout_of_toast))
-        val toast:Toast= Toast(applicationContext)
-        toast.view=layout
-        val  txtmst:TextView=layout.findViewById(R.id.textview_toast)
-        txtmst.setText("you have successfully registered so please Sign In ")
-
-        toast.duration.toLong()
-        toast.show()
-        hideprogressdialog()
-
-        FirebaseAuth.getInstance().signOut()
-        finish()
-
-
-    }
-
 
  private fun userregistered()
  {
@@ -98,12 +82,37 @@ class SignUpActivity : baseactivity() {
      {
         showprogressdialog("Signing Up...")
          FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password).addOnCompleteListener { task ->
-
+              hideprogressdialog()
              if (task.isSuccessful) {
                  val firebase: FirebaseUser = task.result!!.user!!
                  val registeredemail = firebase.email!!
-                 val user:User=User(firebase.uid,name,registeredemail)
-                 firestore().registeruser(this,user)
+
+                 val userid=FirebaseAuth.getInstance().currentUser!!.uid
+
+
+                 val user1:User=User(userid,name,registeredemail)
+
+                 mdatabaseref.child(userid).setValue(user1).addOnCompleteListener{
+
+                     val layout  = layoutInflater.inflate(R.layout.custom_toast_layout,findViewById(R.id.view_layout_of_toast))
+                     val toast:Toast= Toast(applicationContext)
+                     toast.view=layout
+                     val  txtmst:TextView=layout.findViewById(R.id.textview_toast)
+                     txtmst.setText("you have successfully registered so please Sign In ")
+
+                     toast.duration.toLong()
+                     toast.show()
+
+
+                     FirebaseAuth.getInstance().signOut()
+                     finish()
+
+                 }.addOnFailureListener {
+                     Toast.makeText(this,"failed in realtime database account",Toast.LENGTH_SHORT).show()
+                 }
+
+
+
 
              } else {
                  val layout1 =layoutInflater.inflate(R.layout.error_toast_layout,findViewById(R.id.view_layout_of_toast1))
