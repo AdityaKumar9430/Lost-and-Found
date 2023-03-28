@@ -17,10 +17,13 @@
     </style>
     <style name="Theme.App_overlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
 
+
     </style>
     <style name="Theme.popup_overlay" parent="ThemeOverlay.AppCompat.Light">
 
+
     </style>
+
     <style name="exampletoast">
         <item name="backgroundColor">#3E9DE8</item>
         <item name="android:textColor">#FFFFFF</item>

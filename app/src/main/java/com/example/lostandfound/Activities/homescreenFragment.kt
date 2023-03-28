@@ -55,6 +55,10 @@ private lateinit var mauth:FirebaseAuth
       val   toolbar_homefragment1=view.findViewById<Toolbar>(R.id.toolbar_homefragment)
         val drawerlayout=view.findViewById<DrawerLayout>(R.id.drawer_layout)
         toolbar_homefragment1.title = "Lost & Found"
+        toolbar_homefragment1.setTitleTextColor(resources.getColor(R.color.black_1))
+
+
+
        val your_lost_button: Unit =view.findViewById<Button?>(R.id.your_lost1).setOnClickListener {
            val intent1=Intent(activity,Your_lost::class.java)
            startActivity(intent1)

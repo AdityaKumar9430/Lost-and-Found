@@ -6,4 +6,8 @@
     <string name="CloseDrawer">Close navigation drawer</string>
     <string name="Username">Username</string>
     <string name="Username1">Username1</string>
+    <string name="homescreenfragment">
+            Lost &amp; Found
+    </string>
+
 </resources>

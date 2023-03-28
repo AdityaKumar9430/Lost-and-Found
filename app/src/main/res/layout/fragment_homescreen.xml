@@ -24,7 +24,7 @@
     android:layout_height="match_parent"
     tools:context=".Activities.homescreenFragment"
 
-    android:background="@drawable/ic_background">
+    android:background="@drawable/full_image1">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/toolbar_homefragment"
             android:background="#2196F3"
+
             app:popupTheme="@style/Theme.popup_overlay"
             />
     </com.google.android.material.appbar.AppBarLayout>
@@ -54,7 +55,7 @@
         android:textStyle="bold"
         android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        android:textSize="35dp"
+        android:textSize="45dp"
         android:textColor="#3F51B5"/>
 
     <TextView
@@ -66,45 +67,10 @@
         android:layout_marginBottom="-52dp"
         android:text="username"
         android:textColor="#3F51B5"
-        android:textSize="20dp"
+        android:textSize="25dp"
         android:textStyle="italic" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
 
-        android:layout_marginTop="-380dp"
-
-        android:background="@color/white">
-
-
-        <View
-            android:id="@+id/view_bottom"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignBottom="@+id/your_lost"
-            android:background="#757575"></View>
-
-        <View
-            android:id="@+id/view_above"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignTop="@+id/your_lost"
-            android:background="#757575"></View>
-
-        <TextView
-            android:id="@+id/your_lost"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="142dp"
-            android:layout_marginTop="300dp"
-            android:layout_marginBottom="-348dp"
-            android:text="Your Lost"
-            android:textColor="#3F51B5"
-            android:textSize="30dp"
-            android:textStyle="italic" />
-    </RelativeLayout>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/your_lost1"
@@ -112,9 +78,12 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/welcome_home_screen"
         android:layout_marginBottom="-422dp"
-        android:background="#ECEBEB"
+        android:background="@drawable/button_homescreen_fragment"
         android:text="MY LOST"
-        android:textColor="#3F51B5"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+
+        android:textColor="#434343"
         android:textSize="25dp"
         android:textStyle="italic" />
 
@@ -124,10 +93,12 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/welcome_home_screen"
         android:layout_marginBottom="-495dp"
-        android:background="#ECEBEB"
+        android:background="@drawable/button_homescreen_fragment"
         android:text="MY Found"
-        android:textColor="#3F51B5"
+        android:textColor="#434343"
         android:textSize="25dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
         android:textStyle="italic" />
 
 

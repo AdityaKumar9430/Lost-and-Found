@@ -36,7 +36,9 @@ import com.google.firebase.storage.StorageReference
 
       val toolbar_myprofile=findViewById<Toolbar>(R.id.Toolbar_profile_Screen)
         toolbar_myprofile.title="My Profile"
-         toolbar_myprofile.setNavigationIcon(R.drawable.back_icon_white)
+        toolbar_myprofile.setTitleTextColor(resources.getColor(R.color.black))
+
+         toolbar_myprofile.setNavigationIcon(R.drawable.baseline_arrow_back_ios_24)
         toolbar_myprofile.setNavigationOnClickListener {
             onBackPressed()
         }

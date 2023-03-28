@@ -29,9 +29,10 @@ class Full_image_Activity : AppCompatActivity() {
         setSupportActionBar(toolbar123)
         val actionbar = supportActionBar
         actionbar?.title="Full Image"
+        toolbar123.setTitleTextColor(resources.getColor(R.color.black))
         if (actionbar != null) {
             actionbar.setDisplayHomeAsUpEnabled(true)
-            actionbar.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_ios_24_white)
+            actionbar.setHomeAsUpIndicator(R.drawable.baseline_arrow_back_ios_24)
         }
         toolbar123.setNavigationOnClickListener {
             onBackPressed()

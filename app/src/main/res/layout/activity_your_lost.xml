@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.Your_lost"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/lost_section">
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,14 +26,15 @@
         android:id="@+id/my_lost_recycler"
         android:layout_width="match_parent"
 
-        android:layout_height="650dp"
+        android:layout_height="660dp"
         android:layout_marginTop="5dp" />
 
     <View
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_gravity="bottom"
-        android:background="@color/black" />
+
+        android:background="@color/grey_darker" />
 
 
 </LinearLayout>

@@ -30,7 +30,6 @@
         android:layout_alignParentBottom="true"
         app:elevation="8dp"
         app:menu="@menu/bottom_navbar"
-
-        android:background="#B5B5B5"/>
+        android:background="#BBCFE1"/>
 
 </RelativeLayout>

@@ -27,16 +27,16 @@ class IntroActivity12 : AppCompatActivity() {
     var videoView: VideoView? = null
     private lateinit var mauth:FirebaseAuth
 
-    @SuppressLint("MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro12)
         videoView = findViewById(R.id.videoview)
-        val uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.clouds)
+        val uri = Uri.parse("android.resource://" + packageName + "/" + R.raw.clouds1)
         videoView?.setVideoURI(uri)
         videoView?.start()
-        videoView?.setOnPreparedListener(OnPreparedListener { mp -> mp.isLooping = true })
+        videoView?.setOnPreparedListener { mp -> mp.isLooping = true }
         val typeFace: Typeface = Typeface.createFromAsset(assets,"carbon bl.otf")
         val textview123: TextView =findViewById(R.id.textView)
         textview123.typeface=typeFace
