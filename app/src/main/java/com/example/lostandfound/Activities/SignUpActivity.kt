@@ -95,7 +95,7 @@ class SignUpActivity : baseactivity() {
                  mdatabaseref.child(userid).setValue(user1).addOnCompleteListener{
 
                      val layout  = layoutInflater.inflate(R.layout.custom_toast_layout,findViewById(R.id.view_layout_of_toast))
-                     val toast:Toast= Toast(applicationContext)
+                     val toast:Toast= Toast(this)
                      toast.view=layout
                      val  txtmst:TextView=layout.findViewById(R.id.textview_toast)
                      txtmst.setText("you have successfully registered so please Sign In ")
@@ -116,7 +116,7 @@ class SignUpActivity : baseactivity() {
 
              } else {
                  val layout1 =layoutInflater.inflate(R.layout.error_toast_layout,findViewById(R.id.view_layout_of_toast1))
-                 val toast1: Toast=Toast(applicationContext)
+                 val toast1: Toast=Toast(this)
                  toast1.view=layout1
                  val txtmsg:TextView=layout1.findViewById(R.id.textview_toast1)
                  txtmsg.setText(task.exception!!.message)

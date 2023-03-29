@@ -22,9 +22,9 @@
       android:id="@+id/textView"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_alignParentEnd="true"
+
       android:layout_marginTop="25dp"
-      android:layout_marginEnd="81dp"
+
       android:text="WELCOME"
       android:layout_centerHorizontal="true"
       android:textColor="#353232"

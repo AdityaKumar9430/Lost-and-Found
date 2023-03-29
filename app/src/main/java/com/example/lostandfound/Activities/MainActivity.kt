@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
 
         if (binding.bottomnavigationBar.selectedItemId == R.id.home123  ) {
             super.onBackPressed()
+            this.finishAffinity()
             finish()
 
         } else {

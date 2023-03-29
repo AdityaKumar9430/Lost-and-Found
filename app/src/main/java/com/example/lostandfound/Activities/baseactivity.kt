@@ -35,7 +35,7 @@ open class baseactivity : AppCompatActivity() {
         mprogressdialog=Dialog(this)
         mprogressdialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         mprogressdialog.setContentView(R.layout.dialog_progress)
-
+        mprogressdialog.setCancelable(false)
         mprogressdialog.findViewById<TextView>(R.id.tv_progress_text).text=Text
 
         mprogressdialog.show()
