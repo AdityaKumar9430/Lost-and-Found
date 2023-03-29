@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 open class baseactivity : AppCompatActivity() {
 
-    private var doublebacktoexitpressedonce=false
+
     private lateinit var  mprogressdialog: Dialog
 
 
@@ -47,45 +47,17 @@ open class baseactivity : AppCompatActivity() {
     {
         mprogressdialog.dismiss()
     }
-    fun getcurrentuserid():String
-    {
-        return FirebaseAuth.getInstance().currentUser!!.uid
-
-    }
-fun doublebacktoexit() {
 
 
-    if(doublebacktoexitpressedonce)
-    {
-        super.onBackPressed()
-        return
-
-
-    }
-
-
-    this.doublebacktoexitpressedonce=true
-    Toast.makeText(this, "Click back once again to Exit", Toast.LENGTH_SHORT).show()
-    Handler().postDelayed({doublebacktoexitpressedonce=false},1500)
-
-
-
-
-}
     fun showerrorsnackbar(message:String){
+        // gives the root element of a view without actually knowing its id
     val snackbar =Snackbar.make(findViewById(android.R.id.content),message,Snackbar.LENGTH_LONG)
         val snackbarview=snackbar.view
     snackbarview.setBackgroundColor(getColor(this,R.color.snackbar_error_color))
     snackbar.show()
 
     }
-    fun showsuccesfullnackbar(message:String){
-        val snackbar1 =Snackbar.make(findViewById(android.R.id.content),message,Snackbar.LENGTH_LONG)
-        val snackbarview1=snackbar1.view
-        snackbarview1.setBackgroundColor(getColor(this,R.color.snackbar_succesful_color))
-        snackbar1.show()
 
-    }
 
 
 }

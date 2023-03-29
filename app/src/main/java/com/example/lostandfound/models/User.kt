@@ -9,7 +9,7 @@ data class User(
     val email:String="",
     val image:String="",
     val mobile:String="",
-    val fcmtoken:String=""
+
 
 
 
@@ -20,7 +20,7 @@ data class User(
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
-        parcel.readString()!!
+
     ) {
     }
 
@@ -30,7 +30,7 @@ data class User(
         parcel.writeString(email)
         parcel.writeString(image)
         parcel.writeString(mobile)
-        parcel.writeString(fcmtoken)
+
     }
 
     override fun describeContents(): Int {
