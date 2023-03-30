@@ -38,6 +38,7 @@ class ChatAdapter(
         this.mchatlist=mchatlist
 
     }
+    // we generate view from here
     override fun onCreateViewHolder(parent: ViewGroup, position: Int): ViewHolder {
 
          return if(position==1)
