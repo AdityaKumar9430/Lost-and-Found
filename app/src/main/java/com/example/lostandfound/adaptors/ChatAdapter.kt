@@ -160,6 +160,7 @@ class ChatAdapter(
             }
         }
         // messages of text here
+        //
         else
         {
 
