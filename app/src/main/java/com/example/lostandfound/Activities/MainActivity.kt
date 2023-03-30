@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    //    private var doublebacktoexitpressedonce=false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,10 +42,14 @@ class MainActivity : AppCompatActivity() {
 
                 else -> {
 
+
                 }
+
 
             }
             true
+
+
         }
 
 
@@ -53,6 +57,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun addfragment(fragments: Fragment, Flags: Int) {
+        // this is a service call
         val fragmentmanager = supportFragmentManager
         val fragmentTransaction = fragmentmanager.beginTransaction()
         if (Flags == 1) {
@@ -63,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        fragmentTransaction.commit()
+         fragmentTransaction.commit()
     }
 
     override fun onBackPressed() {
@@ -71,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         if (binding.bottomnavigationBar.selectedItemId == R.id.home123  ) {
             super.onBackPressed()
             this.finishAffinity()
-            finish()
+
 
         } else {
             binding.bottomnavigationBar.selectedItemId = R.id.home123

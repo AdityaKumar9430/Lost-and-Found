@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
@@ -26,10 +27,11 @@ import org.w3c.dom.Text
 import java.io.IOException
 
 
+                                        //when something is clicked on navigation item
 class homescreenFragment : Fragment(),NavigationView.OnNavigationItemSelectedListener {
 private lateinit var mdatabasereference:DatabaseReference
 private lateinit var mauth:FirebaseAuth
-    private var doublebacktoexitpressedonce=false
+
 
 
 
@@ -59,12 +61,12 @@ private lateinit var mauth:FirebaseAuth
 
 
 
-       val your_lost_button: Unit =view.findViewById<Button?>(R.id.your_lost1).setOnClickListener {
+       val your_lost_button =view.findViewById<Button>(R.id.your_lost1).setOnClickListener {
            val intent1=Intent(activity,Your_lost::class.java)
            startActivity(intent1)
 
        }
-        val your_found_button: Unit =view.findViewById<Button?>(R.id.your_found1).setOnClickListener {
+        val your_found_button =view.findViewById<Button>(R.id.your_found1).setOnClickListener {
             val intent=Intent(activity,your_found::class.java)
             startActivity(intent)
         }
@@ -109,22 +111,9 @@ private lateinit var mauth:FirebaseAuth
             })
 
 
-//        if(activity is AppCompatActivity)
-//        {
-//            (activity as AppCompatActivity).setSupportActionBar(toolbar_homefragment1)
-//
-//        }
 
 
-//        fun drawertoggling()
-//        {
-//            if(drawerlayout.isDrawerOpen(GravityCompat.START)){
-//                drawerlayout.closeDrawer(GravityCompat.START)
-//            }
-//            else{
-//                drawerlayout.openDrawer(GravityCompat.START)
-//            }
-//        }
+
             val toggle = ActionBarDrawerToggle(
                 this.activity,
                 drawerlayout,
@@ -136,30 +125,13 @@ private lateinit var mauth:FirebaseAuth
             toggle.syncState()
 
 
-//        fun doubbacktoexit() {
-//            if(doublebacktoexitpressedonce)
-//            {
-//                activity?.onBackPressed()
-//                return
-//            }
-//        }
-//        fun onbackpressed()
-//        {
-//            if(drawerlayout.isDrawerOpen(GravityCompat.START)){
-//                drawerlayout.closeDrawer(GravityCompat.START)
-//            }
-//            else{
-//                doubbacktoexit()
-//            }
-//        }
+
+
 
 
             toolbar_homefragment1.setNavigationIcon(R.drawable.menuiicontoolbar)
-//        toolbar_homefragment1.setNavigationOnClickListener {
-//            drawertoggling()
-////            onbackpressed()
-//        }
 
+            //do whatever is designed here
             headerview.setNavigationItemSelectedListener(this)
 
 
@@ -168,15 +140,18 @@ private lateinit var mauth:FirebaseAuth
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
+
         when(item.itemId)
         {
-            R.id.nav_my_profile->{FirebaseAuth.getInstance().currentUser?.uid
+            R.id.nav_my_profile->{
                 val intent1=Intent(activity,profile_activity::class.java)
                 startActivity(intent1)
             }
             R.id.nav_Sign_out->{FirebaseAuth.getInstance().signOut()
             val intent2=Intent(activity,IntroActivity12::class.java)
+                //back button does not take you this activity clear all the top activity on the backstack
             intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+
             startActivity(intent2)
               activity?.finish()
 
@@ -192,6 +167,7 @@ private lateinit var mauth:FirebaseAuth
         return true
 
     }
+
 
 
 
