@@ -28,14 +28,9 @@ open class SignInActivity :baseactivity() {
         setContentView(R.layout.activity_sign_in)
         setupactionbar1()
         auth= FirebaseAuth.getInstance()
-
         findViewById<Button>(R.id.btn_signin1).setOnClickListener {
             signinregistereduser()
         }
-
-
-
-
         val btn_signin = findViewById<View>(R.id.intentsignin)
         btn_signin.setOnClickListener{
             startActivity(Intent(this,SignUpActivity::class.java))
@@ -75,13 +70,13 @@ open class SignInActivity :baseactivity() {
                 if(task.isSuccessful){
 
                     val layout123=layoutInflater.inflate(R.layout.custom_toast_layout,findViewById(R.id.view_layout_of_toast))
-                    val   toast4:Toast=Toast(applicationContext)
+                    val   toast4:Toast=Toast(this)
                     toast4.view=layout123
                     val txtmsg12:TextView=layout123.findViewById(R.id.textview_toast)
                     txtmsg12.setText( "You have Signed In successfully")
                     toast4.duration.toLong()
                     toast4.show()
-                    val user=auth.currentUser
+
                     finish()
                     startActivity(Intent(this,MainActivity::class.java))
 
@@ -96,7 +91,7 @@ open class SignInActivity :baseactivity() {
                     //if sign in fails display the message to the users
 
                     val layout1=layoutInflater.inflate(R.layout.error_toast_layout,findViewById(R.id.view_layout_of_toast1))
-                    val toast1:Toast= Toast(applicationContext)
+                    val toast1:Toast= Toast(this)
                     toast1.view=layout1
                     val txtmsg1:TextView=layout1.findViewById(R.id.textview_toast1)
                     txtmsg1.setText("Authentication failed,Please enter correct credentials.")

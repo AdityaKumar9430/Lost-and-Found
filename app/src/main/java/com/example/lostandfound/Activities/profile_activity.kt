@@ -18,8 +18,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import org.checkerframework.common.returnsreceiver.qual.This
 
-    class profile_activity : baseactivity() {
+class profile_activity : baseactivity() {
     private  val  galleryrequestcode:Int=1
     private lateinit var mdatabaserefernce:DatabaseReference
     private lateinit var mauth:FirebaseAuth
@@ -43,8 +44,8 @@ import com.google.firebase.storage.StorageReference
             onBackPressed()
         }
          mainprofileimage=findViewById<ImageView>(R.id.user_image)
-        mainprofilename=findViewById<TextView>(R.id.my_profile_name)
-        mainprofileemail=findViewById<TextView>(R.id.my_profile_email)
+         mainprofilename=findViewById<TextView>(R.id.my_profile_name)
+         mainprofileemail=findViewById<TextView>(R.id.my_profile_email)
          mainprofileno=findViewById<TextView>(R.id.my_profile_no)
         val mainprofilebutton=findViewById<Button>(R.id.my_profile_button)
         mainprofileimage.setOnClickListener{
@@ -113,7 +114,7 @@ import com.google.firebase.storage.StorageReference
 
         }
     }
-    private fun uploaduserimage(){
+        private fun uploaduserimage(){
         showprogressdialog("Please Wait...")
         if(mselectedimageuri!=null)
         {
@@ -123,7 +124,7 @@ import com.google.firebase.storage.StorageReference
             sref.putFile(mselectedimageuri!!).addOnSuccessListener {
              tasksnapshot->
                 tasksnapshot.metadata!!.reference!!.downloadUrl.addOnSuccessListener {
-                    //this is actual link we want
+                    //this is actual link we want where data stored in firebase
                     uri->
 
                         mprofileimageuri = uri.toString()
@@ -175,6 +176,17 @@ import com.google.firebase.storage.StorageReference
         {
             updateuserprofiledata1(userhashmap)
         }
+        if(!anychangesmade)
+        {
+            val layout1 =layoutInflater.inflate(R.layout.error_toast_layout,findViewById(R.id.view_layout_of_toast1))
+            val toast1: Toast=Toast(this)
+            toast1.view=layout1
+            val txtmsg:TextView=layout1.findViewById(R.id.textview_toast1)
+            txtmsg.setText("You have not updated any data")
+            toast1.duration.toShort()
+            toast1.show()
+            hideprogressdialog()
+        }
 
     }
     private fun updateuserprofiledata1(userhashmap1:HashMap<String,Any>)
@@ -182,10 +194,10 @@ import com.google.firebase.storage.StorageReference
           val currentuserid=mauth.uid.toString()
         mdatabaserefernce.child(currentuserid).updateChildren(userhashmap1).addOnSuccessListener {
             val layout  = layoutInflater.inflate(R.layout.custom_toast_layout,findViewById(R.id.view_layout_of_toast))
-            val toast:Toast= Toast(applicationContext)
+            val toast:Toast= Toast(this)
             toast.view=layout
             val  txtmst:TextView=layout.findViewById(R.id.textview_toast)
-            txtmst.text = "User Profile Updated Successfully"
+            txtmst.text ="Your Profile Updated Successfully"
             toast.duration.toLong()
             toast.show()
             hideprogressdialog()

@@ -33,7 +33,7 @@ import kotlin.collections.ArrayList
 
 
 class LostScreenFragment : Fragment() {
-    private var          name:String=""
+    private var name:String=""
     private var image:String?=""
     private var email:String=""
     private var mob_no:String=""
@@ -114,15 +114,7 @@ class LostScreenFragment : Fragment() {
             val message=messageid.text.toString()
             if(message=="")
             {
-//                val snackbar = Snackbar.make(requireActivity().findViewById(android.R.id.content),"Please enter the message", Snackbar.LENGTH_SHORT)
-//                val snackbarview=snackbar.view
-//                snackbarview.setBackgroundColor(
-//                    ContextCompat.getColor(
-//                        this.requireContext(),
-//                        R.color.snackbar_error_color
-//                    )
-//                )
-//                snackbar.show()
+
                 val layout1 =layoutInflater.inflate(R.layout.error_toast_layout,requireActivity().findViewById(R.id.view_layout_of_toast1))
                 val toast1: Toast = Toast(context)
                 toast1.view=layout1
@@ -232,7 +224,7 @@ class LostScreenFragment : Fragment() {
         mprogressdialog.setContentView(R.layout.dialog_progress)
 
         mprogressdialog.findViewById<TextView>(R.id.tv_progress_text).text=Text
-
+        mprogressdialog.setCancelable(false)
         mprogressdialog.show()
         Handler().postDelayed({},2000)
 
