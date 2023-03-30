@@ -26,7 +26,7 @@
 
     <style name="exampletoast">
         <item name="backgroundColor">#3E9DE8</item>
-        <item name="android:textColor">#FFFFFF</item>
+        <item name="itemTextColor">#FFFFFF</item>
         <item name="icon">@drawable/toast_recycler</item>
         <item name="strokeColor">#4E4B4B</item>
         <item name="strokeWidth">2dp</item>

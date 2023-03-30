@@ -211,6 +211,7 @@ class ChatAdapter(
 
 
 
+    // we get view items from here
    inner class ViewHolder(viewitem:View):RecyclerView.ViewHolder(viewitem)
    {
        var chat_profile_image:CircleImageView?=null

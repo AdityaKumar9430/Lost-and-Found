@@ -61,11 +61,12 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/welcome_home_screen"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-62dp"
+        android:layout_marginBottom="-82dp"
+
         android:text="username"
         android:textColor="#3F51B5"
-        android:textSize="25dp"
-        android:textStyle="italic" />
+        android:textSize="30dp"
+         />
 
 
 

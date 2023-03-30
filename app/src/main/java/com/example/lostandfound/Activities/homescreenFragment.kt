@@ -53,7 +53,10 @@ private lateinit var mauth:FirebaseAuth
         val typeface:Typeface= Typeface.createFromAsset(activity?.assets,"carbon bl.otf")
         val welcometext:TextView=view.findViewById(R.id.welcome_home_screen)
         welcometext.typeface=typeface
+        val typeface1:Typeface= Typeface.createFromAsset(activity?.assets,"main_profile.ttf")
+
         val username:TextView=view.findViewById(R.id.welcome_username)
+        username.typeface=typeface1
       val   toolbar_homefragment1=view.findViewById<Toolbar>(R.id.toolbar_homefragment)
         val drawerlayout=view.findViewById<DrawerLayout>(R.id.drawer_layout)
         toolbar_homefragment1.title = "Lost & Found"
