@@ -29,7 +29,7 @@ class ChatAdapter2(mcontext:Context,mchatlist:List<Chat>):RecyclerView.Adapter<C
  private val mcontext:Context
  private val mchatlist:List<Chat>
 
-    private var mchatlistsize:Int?=null
+
 
     var firebaseUser:FirebaseUser=FirebaseAuth.getInstance().currentUser!!
  init {

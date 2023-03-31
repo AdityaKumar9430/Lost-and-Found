@@ -257,7 +257,7 @@ class ChatAdapter(
                StyleableToast.makeText(holder.itemView.context,"Message Deleted Successfully",R.style.exampletoast).show()
             }
             else{
-                StyleableToast.makeText(holder.itemView.context,"Message not Deleted",R.style.exampletoast1).show()
+                StyleableToast.makeText(holder.itemView.context,"Message not Deleted",R.style.example_toast1).show()
             }
 
         }
