@@ -168,15 +168,7 @@ class ChatAdapter2(mcontext:Context,mchatlist:List<Chat>):RecyclerView.Adapter<C
 
     }
 
-    override fun getItemViewType(position: Int): Int {
-        return if(mchatlist[position].sender_id==firebaseUser.uid)
-        {
-            position
-        }
-        else{
-            0
-        }
-    }
+
 
     private fun delete_message(position:Int, holder: ChatAdapter2.ViewHolder)
     {

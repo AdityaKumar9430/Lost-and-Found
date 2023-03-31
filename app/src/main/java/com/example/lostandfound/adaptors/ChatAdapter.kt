@@ -39,9 +39,9 @@ class ChatAdapter(
 
     }
     // we generate view from here
-    override fun onCreateViewHolder(parent: ViewGroup, position: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, Viewtype: Int): ViewHolder {
 
-         return if(position==1)
+         return if(Viewtype==1)
          {
              val view:View=LayoutInflater.from(mcontext).inflate(R.layout.message_item_right,parent,false)
              ViewHolder(view)
@@ -237,7 +237,7 @@ class ChatAdapter(
        }
 
    }
-
+   // represents the position of view i.e whether it is position item left or right
     override fun getItemViewType(position: Int): Int {
 
         return if(mchatlist[position].sender_id == firebaseuser.uid){
